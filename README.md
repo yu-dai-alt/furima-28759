@@ -40,7 +40,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :traes
+- has_many :treads
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -86,12 +86,14 @@ Things you may want to cover:
 |address|string|null: false|
 |building_name|string||
 |phone_number|string|null: false|
+|traad_id|integer|null: false,foreign_key: true|
+
 
 ### Association
 - has_one_active_hash :prefectures
-- belongs_to:traes
+- belongs_to:tread
 
-## traesテーブル
+## treadsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
