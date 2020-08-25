@@ -28,35 +28,30 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user-id|integer|null: false|
 |nickname|string|null: false|
 |email|string|null: false|
-|password|string|null: false|
-|hiragananame|string|null: false|
-|katakananame|string|null: false|
-|birthday|datetime|null: false|
+|password|date|null: false|
+|hiragananame|date|null: false|
+|katakananame|date|null: false|
+|birthday|date|null: false|
 
 ### Association
 - has_many :products
 - has_many :comments
 
-## productsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product-id|integer|null: false|
-|product-name|string|null: false|
+|item-name|string|null: false|
 |image|text|null: false|
-|product-status|string|null: false|
-|category|string|null: false|
 |price|integer|null: false|
 |delivery-fee|integer|null: false|
-|area|string|null: false|
 |user-id|integer|null: false,foreign_key: true|
 
 
 ### Association
 - belongs_to:users
-- has_one:credit-cards
+- has_one:shipping-address
 
 
 ## commentsテーブル
@@ -69,20 +64,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to:users
-- belongs_to:prducts
-
-
-## credit-cardsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|card-info|string|null: false|
-|expiration-date|datetime|null: false|
-|security-code|string|null: false|
-
-
-### Association
-- belongs_to:products
-- has_one:credit-cards
+- belongs_to:items
 
 
 ## shipping-addressテーブル
@@ -95,4 +77,15 @@ Things you may want to cover:
 |phone-number|string|null: false|
 
 ### Association
-- belongs_to:credit-cards
+- belongs_to:items
+
+## traesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user-id|string|null: false|
+|item-id|string|null: false|
+
+
+### Association
+- belongs_to:users
+- belongs_to:items
