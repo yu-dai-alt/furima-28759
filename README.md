@@ -30,27 +30,36 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false|
-|password|date|null: false|
-|hiragananame|date|null: false|
-|katakananame|date|null: false|
+|password|string|null: false|
+|hiragana_firstname|string|null: false|
+|hiragana_lastname|string|null: false|
+|katakana_firstname|string|null: false|
+|katakana_lastname|string|null: false|
 |birthday|date|null: false|
 
 ### Association
-- has_many :products
+- has_many :items
 - has_many :comments
+- has_many :traes
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item-name|string|null: false|
+|name|string|null: false|
 |image|text|null: false|
 |price|integer|null: false|
-|delivery-fee|integer|null: false|
-|user-id|integer|null: false,foreign_key: true|
+|area|string|null: false|
+|category|string|null: false|
+|item_status|string|null: false|
+|delivery_fee|integer|null: false|
+|user_id|integer|null: false,foreign_key: true|
 
 
 ### Association
-- belongs_to:users
+- has_one_active_hash :area
+- has_one_active_hash :category
+- has_one_active_hash :item_status
+- belongs_to:user
 - has_one:shipping-address
 
 
@@ -58,34 +67,37 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user-id|integer|null: false,foreign_key: true|
-|product-id|integer|null: false,foreign_key: true|
+|user_id|integer|null: false,foreign_key: true|
+|item_id|integer|null: false,foreign_key: true|
 
 
 ### Association
-- belongs_to:users
-- belongs_to:items
+- belongs_to:user
+- belongs_to:item
 
 
-## shipping-addressテーブル
+## shipping_addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal-code|string|null: false|
+|postal_code|string|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|phone-number|string|null: false|
+|building_name|string|null: false|
+|phone_number|string|null: false|
 
 ### Association
-- belongs_to:items
+- has_one_active_hash :prefectures
+- has_many:traes
 
 ## traesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user-id|string|null: false|
-|item-id|string|null: false|
+|user_id|integer|null: false|
+|item_id|integer|null: false|
 
 
 ### Association
-- belongs_to:users
-- belongs_to:items
+- belongs_to:user
+- belongs_to:item
+- belongs_to:shipping_address
