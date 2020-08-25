@@ -62,6 +62,7 @@ Things you may want to cover:
 - has_one_active_hash :item_status
 - has_one_active_hash :shipping_day
 - belongs_to:user
+- has_one:trade
 
 
 ## commentsテーブル
