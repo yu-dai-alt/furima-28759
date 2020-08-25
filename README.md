@@ -48,9 +48,9 @@ Things you may want to cover:
 |name|string|null: false|
 |image|text|null: false|
 |price|integer|null: false|
-|area|string|null: false|
-|category|string|null: false|
-|item_status|string|null: false|
+|area|integer|null: false|
+|category|integer|null: false|
+|item_status|integer|null: false|
 |delivery_fee|integer|null: false|
 |user_id|integer|null: false,foreign_key: true|
 
@@ -60,7 +60,6 @@ Things you may want to cover:
 - has_one_active_hash :category
 - has_one_active_hash :item_status
 - belongs_to:user
-- has_one:shipping-address
 
 
 ## commentsテーブル
@@ -79,25 +78,25 @@ Things you may want to cover:
 ## shipping_addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|null: false|
-|prefectures|string|null: false|
+|postal_code|integer|null: false|
+|prefectures|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|building_name|string|null: false|
+|building_name|string||
 |phone_number|string|null: false|
 
 ### Association
 - has_one_active_hash :prefectures
-- has_many:traes
+- belongs_to:traes
 
 ## traesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|item_id|integer|null: false|
+|user_id|integer|null: false,foreign_key: true|
+|item_id|integer|null: false,foreign_key: true|
 
 
 ### Association
 - belongs_to:user
 - belongs_to:item
-- belongs_to:shipping_address
+- has_one:shipping_address
