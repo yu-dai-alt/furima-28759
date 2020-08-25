@@ -92,7 +92,7 @@ Things you may want to cover:
 
 ### Association
 - has_one_active_hash :prefectures
-- belongs_to:tread
+- belongs_to:trade
 
 ## tradesテーブル
 |Column|Type|Options|
