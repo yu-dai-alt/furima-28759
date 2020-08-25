@@ -40,7 +40,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :treads
+- has_many :trades
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -94,7 +94,7 @@ Things you may want to cover:
 - has_one_active_hash :prefectures
 - belongs_to:tread
 
-## treadsテーブル
+## tradesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
