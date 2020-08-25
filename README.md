@@ -52,6 +52,7 @@ Things you may want to cover:
 |category|integer|null: false|
 |item_status|integer|null: false|
 |delivery_fee|integer|null: false|
+|shipping_day|integer|null: false|
 |user_id|integer|null: false,foreign_key: true|
 
 
@@ -59,6 +60,7 @@ Things you may want to cover:
 - has_one_active_hash :area
 - has_one_active_hash :category
 - has_one_active_hash :item_status
+- has_one_active_hash :shipping_day
 - belongs_to:user
 
 
@@ -78,7 +80,7 @@ Things you may want to cover:
 ## shipping_addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null: false|
+|postal_code|string|null: false|
 |prefectures|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
