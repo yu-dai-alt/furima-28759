@@ -5,8 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   with_options presence: true do
-    validates :password, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は半角英数字で入力してください" }
-    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
-    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "は全角（カタカナ）で入力してください" }
+    validates :nickname, uniqueness: { case_sensitive: false }
+    validates :email, inclusion: { in: %w(@)}
+    validates :email, uniqueness: { case_sensitive: false }
+    validates :password, length: { minimum: 5 }
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{6,100}+\z/}
+    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :birth_date
   end
 end
