@@ -19,3 +19,4 @@ module Furima28759
   end
 end
 
+Rails.application.config.assets.unknown_asset_fallback = true
