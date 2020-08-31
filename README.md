@@ -31,11 +31,12 @@ Things you may want to cover:
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|hiragana_firstname|string|null: false|
-|hiragana_lastname|string|null: false|
-|katakana_firstname|string|null: false|
-|katakana_lastname|string|null: false|
-|birthday|date|null: false|
+|password_confirmation|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name-kana|string|null: false|
+|last_name_kana|string|null: false|
+|birth_date|date|null: false|
 
 ### Association
 - has_many :items
