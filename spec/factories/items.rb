@@ -8,5 +8,6 @@ FactoryBot.define do
     prefecture_id { "2" }
     delivery_fee_id { "2" }
     price { "10000" }
+    association :user
   end
 end

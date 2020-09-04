@@ -29,39 +29,44 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Info can't be blank")
       end
       it "category_idが空だと登録できない" do
-        @item.category_id = ""
+        @item.category_id = "--"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category is not a number")
       end
       it "item_status_idが空だと登録できない" do
-        @item.item_status_id = ""
+        @item.item_status_id = "--"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item status can't be blank")
+        expect(@item.errors.full_messages).to include("Item status is not a number")
       end
       it "shipping_day_idが空だと登録できない" do
-        @item.shipping_day_id = ""
+        @item.shipping_day_id = "--"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping day can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping day is not a number")
       end
       it "prefecture_idが空だと登録できない" do
-        @item.prefecture_id = ""
+        @item.prefecture_id = "--"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture is not a number")
       end
       it "delivery_fee_idが空だと登録できない" do
-        @item.delivery_fee_id = ""
+        @item.delivery_fee_id = "--"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery fee is not a number")
       end
       it "priceが空だと登録できない" do
         @item.price = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it "priceが300~9,999,999円以内でないと登録できない" do
+      it "priceが300円以下は登録できない" do
         @item.price = "200"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end
+      it "priceが9,999,999円以上は登録できない" do
+        @item.price = "1000000000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
     end
   end
