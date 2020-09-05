@@ -47,9 +47,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|info|text|null: false|
 |image|text|null: false|
 |price|integer|null: false|
-|area|integer|null: false|
+|prefecture|integer|null: false|
 |category|integer|null: false|
 |item_status|integer|null: false|
 |delivery_fee|integer|null: false|
