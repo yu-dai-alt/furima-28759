@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :show]
   
   def index
     @items = Item.all.order(id: "DESC")
@@ -15,6 +15,10 @@ class ItemsController < ApplicationController
     else
       redirect_to action: :new
     end
+  end
+ 
+  def show
+    @item = Item.find(params[:id])
   end
 
   def edit
