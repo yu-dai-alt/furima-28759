@@ -10,22 +10,12 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def show
-  end
-
   def create
     if Item.create(item_params)
       redirect_to action: :index
     else
       redirect_to action: :new
     end
-  end
- 
-  def show
-  end
-
-
-  def edit
   end
 
   def update
