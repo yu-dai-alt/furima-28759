@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, only: [:edit, :show, :update]
   
   def index
     @items = Item.all.order(id: "DESC")
@@ -7,6 +8,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+  end
+
+  def show
   end
 
   def create
@@ -18,16 +22,14 @@ class ItemsController < ApplicationController
   end
  
   def show
-    @item = Item.find(params[:id])
   end
 
+
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if Item.update(item_params)
       redirect_to action: :index
     else
       redirect_to action: :edit
@@ -44,5 +46,9 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
