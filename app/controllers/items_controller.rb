@@ -10,10 +10,23 @@ class ItemsController < ApplicationController
   end
 
   def create
-    unless Item.create(item_params)
+    if Item.create(item_params)
       redirect_to action: :index
     else
       redirect_to action: :new
+    end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to action: :index
+    else
+      redirect_to action: :edit
     end
   end
 
