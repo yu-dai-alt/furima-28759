@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  
+  has_many :items
+  has_many :comments
+  has_many :orders
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  
 
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: false }
@@ -14,7 +15,4 @@ class User < ApplicationRecord
     validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :birth_date
   end
-
-  has_many :item_users
-  has_many :items, through: :item_users
 end
