@@ -10,10 +10,6 @@ RSpec.describe ItemOrder, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@item_order).to be_valid
       end
-      it 'building_nameは空でも保存できること' do
-        @item_order.building_name = ""
-        expect(@item_order).to be_valid
-      end
     end 
     context '購入がうまくいかないとき' do
       it 'postal_codeが空だと保存できないこと' do
@@ -31,25 +27,10 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Prefecture is not a number")
       end
-      it 'priceが空だと保存できないこと' do
-        @item_order.price = nil
-        @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Price can't be blank")
-      end
-      it 'priceが全角数字だと保存できないこと' do
-        @item_order.price = "８００"
-        @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Price is not a number")
-      end
-      it 'priceが300円未満では保存できないこと' do
-        @item_order.price = "299"
-        @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Price must be greater than or equal to 300")
-      end
-      it 'priceが9,999,999円を超過すると保存できないこと' do
-        @item_order.price = "1000000000"
+      it 'tokenが空だと保存できないこと' do
+        @item_order.token = nil
           @item_order.valid?
-          expect(@item_order.errors.full_messages).to include("Price must be less than or equal to 9999999")
+          expect(@item_order.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
