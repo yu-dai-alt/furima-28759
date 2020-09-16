@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     if Item.create(item_params)
       redirect_to action: :index
     else
-      redirect_to action: :new
+      render :new
     end
   end
 
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     if Item.update(item_params)
       redirect_to action: :index
     else
-      redirect_to action: :edit
+      render :show
     end
   end
 
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to action: :index
     else
-      redirect_to action: :show
+      render :show
     end
   end
 
