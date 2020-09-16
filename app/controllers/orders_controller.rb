@@ -13,7 +13,8 @@ class OrdersController < ApplicationController
       @item_order.save
       return redirect_to root_path
     else
-      redirect_to item_orders_path
+      # return redirect_to item_orders_path
+      render "index"
     end
   end
 
