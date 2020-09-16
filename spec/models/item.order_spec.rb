@@ -27,6 +27,21 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Prefecture is not a number")
       end
+      it 'cityが空だと保存できないこと' do
+        @item_order.city = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("City can't be blank")
+      end
+      it 'addressが空だと保存できないこと' do
+        @item_order.address = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Address can't be blank")
+      end
+      it 'phone_numberが空だと保存できないこと' do
+        @item_order.phone_number = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Phone number can't be blank")
+      end
       it 'tokenが空だと保存できないこと' do
         @item_order.token = nil
           @item_order.valid?
