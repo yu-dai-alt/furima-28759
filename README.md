@@ -41,7 +41,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :trades
+- has_many :orders
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -63,8 +63,9 @@ Things you may want to cover:
 - has_one_active_hash :category
 - has_one_active_hash :item_status
 - has_one_active_hash :shipping_day
-- belongs_to:user
-- has_one:trade
+- has_one_active_hash :delivery_fee
+- belongs_to :user
+- has_one :order
 
 
 ## commentsテーブル
@@ -80,23 +81,23 @@ Things you may want to cover:
 - belongs_to:item
 
 
-## shipping_addressテーブル
+## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|null: false|
-|prefectures|integer|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string||
 |phone_number|string|null: false|
-|trade_id|integer|null: false,foreign_key: true|
+|order_id|integer|null: false|foreign_key: true|
 
 
 ### Association
 - has_one_active_hash :prefectures
-- belongs_to:trade
+- belongs_to:order
 
-## tradesテーブル
+## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
