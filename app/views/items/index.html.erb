@@ -116,7 +116,6 @@
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
     <ul class='item-lists'>
-
       <li class='list'>
         <% @items.each do |item| %>
           <%= link_to item_path(item) do %>
@@ -145,10 +144,8 @@
           <% end %>
         <% end %>
       </li>
-
     </ul>
   </div>
-
 </div>
 <% if user_signed_in? %>
   <%= link_to new_item_path do %>
