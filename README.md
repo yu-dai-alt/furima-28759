@@ -57,7 +57,6 @@ Things you may want to cover:
 |shipping_day|integer|null: false|
 |user_id|integer|null: false,foreign_key: true|
 
-
 ### Association
 - has_one_active_hash :area
 - has_one_active_hash :category
@@ -75,7 +74,6 @@ Things you may want to cover:
 |user_id|integer|null: false,foreign_key: true|
 |item_id|integer|null: false,foreign_key: true|
 
-
 ### Association
 - belongs_to:user
 - belongs_to:item
@@ -92,17 +90,16 @@ Things you may want to cover:
 |phone_number|string|null: false|
 |order_id|integer|null: false|foreign_key: true|
 
-
 ### Association
 - has_one_active_hash :prefectures
 - belongs_to:order
+
 
 ## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
 |item_id|integer|null: false,foreign_key: true|
-
 
 ### Association
 - belongs_to:user
