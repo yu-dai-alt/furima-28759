@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one :order
-  has_one_attached :image
+  has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
@@ -11,7 +11,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_fee
 
   with_options presence: true do
-    validates :image
     validates :name,            length: { maximum: 40, too_long: "最大%{count}文字まで使えます" }
     validates :info,            length: { maximum: 1000, too_long: "最大%{count}文字まで使えます" }
     validates :category_id,     numericality: { other_than: 1 }
