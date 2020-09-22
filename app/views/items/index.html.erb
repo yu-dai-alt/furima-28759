@@ -117,33 +117,34 @@
     <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
     <ul class='item-lists'>
       <li class='list'>
-        <% @items.each do |item| %>
-          <%= link_to item_path(item) do %>
-            <div class='item-img-content'>
+      
+        <% @items.first(5).each do |item| %>
+            <%= link_to item_path(item) do %>
+              <div class='item-img-content'>
 
-              <% item.images.each do |image| %>
-                <%= image_tag image, class:'item-img' %>
-              <% end %>
+                <% item.images.each do |image| %>
+                  <%= image_tag image, class:'item-img' %>
+                <% end %>
 
-              <% if item.order != nil %>
-                <div class='sold-out'>
-                  <span>Sold Out!!</span>
-                </div>
-              <% end %>
-            </div>
-            <div class='item-info'>
-              <h3 class='item-name'>
-                <%= item.name %>
-              </h3>
-              <div class='item-price'>
-                <span><%= item.price %>円<br>(税込み)</span>
-                <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                <% if item.order != nil %>
+                  <div class='sold-out'>
+                    <span>Sold Out!!</span>
+                  </div>
+                <% end %>
+              </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= item.name %>
+                </h3>
+                <div class='item-price'>
+                  <span><%= item.price %>円<br>(税込み)</span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
         <% end %>
       </li>
     </ul>
