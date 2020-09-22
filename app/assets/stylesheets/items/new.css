@@ -98,6 +98,11 @@
   object-fit: contain;
 }
 
+.item-img {
+  width: 33vh;
+  height: 33vh;
+}
+
 
 /* 商品名と商品説明 */
 .new-items {

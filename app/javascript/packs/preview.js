@@ -1,5 +1,5 @@
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
-  document.addEventListener('DOMContentLoaded', function(){
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ ) || document.URL.match( /index/ )) {
+  document.addEventListener('DOMContentLoaded', function() {
     const ImageList = document.getElementById('image-list')
 
     const createImageHTML = (blob) => {
@@ -8,10 +8,10 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       imageElement.setAttribute('id',"image-element")
       let imageElementNum = document.querySelectorAll('#image-element').length
 
-      const blobImage = document.createElement('img');
-      blobImage.width = 300;
-      blobImage.height = 200;
-      blobImage.setAttribute('src', blob);
+      const blobImage = document.createElement('img')
+      blobImage.width = 300
+      blobImage.height = 200
+      blobImage.setAttribute('src', blob)
 
       const inputHTML = document.createElement('input')
       inputHTML.setAttribute('id','message_image_${imageElementNum}')
