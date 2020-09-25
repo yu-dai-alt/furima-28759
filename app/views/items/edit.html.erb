@@ -5,6 +5,9 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with(model: @item, local: true) do |f| %>
+      <% @item.images.each do |image| %>
+        <%= image_tag image, class:"image-now" %>
+      <% end %>
 
     <%= render 'shared/error_messages', model:f.object %>
 

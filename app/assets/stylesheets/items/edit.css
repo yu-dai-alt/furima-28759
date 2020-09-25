@@ -1,0 +1,6 @@
+.image-now {
+  height: 40vh;
+  width: 50vw;
+  min-height: 500px;
+  object-fit: contain;
+}

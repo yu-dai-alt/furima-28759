@@ -21,7 +21,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if Item.update(item_params)
+    @item.update(item_params)
+    if @item.valid?
       redirect_to action: :index
     else
       render :show
