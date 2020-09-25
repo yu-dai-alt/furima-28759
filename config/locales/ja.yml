@@ -3,6 +3,12 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
+       first_name: 苗字
+       last_name: 名前
+       first_name_kana: ミョウジ
+       last_name_kana: ナマエ
+       birth_date: 誕生日
+
      item:
        name: 商品名
        text: テキスト
@@ -14,4 +20,17 @@ ja:
        prefecture_id: 都道府県
        delivery_fee_id: 配送料
        price: 価格
+
+     item_order:
+       postal_code: 郵便番号
+       prefecture_id: 都道府県
+       city: 市区町村
+       address: 番地
+       building_name: 建物名
+       phone_number: 電話番号
+
+
+
+
+
 

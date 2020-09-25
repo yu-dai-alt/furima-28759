@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_many :items
   has_many :comments
-  has_many :orders
+  has_many :order
+  has_one :card, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
