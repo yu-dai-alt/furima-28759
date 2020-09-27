@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   class MyLogger < Logger
-    include LoggerSilence
-    include ActiveSupport::LoggerThreadSafeLevel
+    include ActiveSupport::LoggerSilence
   end
   before_action :mylogger_test
   before_action :configure_permitted_parameters, if: :devise_controller?
