@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only:[:show, :update]
   resources :items do
-    resources :orders, only:[:index, :create]
+    resources :orders, only:[:index, :new, :create]
   end
   resources :items, only: :order do
     post 'order', on: :member
