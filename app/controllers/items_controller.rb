@@ -7,22 +7,22 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item_tag = ItemTag.new
   end
 
   def create
-    @item = Item.create(item_params)
-    if @item.valid?
-      @item.save
+    @item_tag = ItemTag.new(item_tag_params)
+    if @item_tag.valid?
+      @item_tag.save
       redirect_to action: :index
     else
-      render :new
+      render "new"
     end
   end
 
   def update
-    @item.update(item_params)
-    if @item.valid?
+    @item_tag.update(item_tag_params)
+    if @item_tag.valid?
       redirect_to action: :index
     else
       render :show
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
+    if @item_tag.destroy
       redirect_to action: :index
     else
       render :index
@@ -39,8 +39,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:name, :info, :price, :prefecture_id, :category_id, :item_status_id, :delivery_fee_id, :shipping_day_id, images: []).merge(user_id: current_user.id)
+  def item_tag_params
+    params.require(:item_tag).permit(:name, :info, :price, :prefecture_id, :category_id, :item_status_id, :delivery_fee_id, :shipping_day_id, :word, images: []).merge(user_id: current_user.id)
   end
 
   def move_to_index
